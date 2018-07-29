@@ -12,6 +12,7 @@
 		3AA25D3F210C4A78003150EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AA25D3D210C4A78003150EC /* Main.storyboard */; };
 		3AA25D41210C4A7B003150EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AA25D40210C4A7B003150EC /* Assets.xcassets */; };
 		3AA25D44210C4A7B003150EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AA25D42210C4A7B003150EC /* LaunchScreen.storyboard */; };
+		3AA25D52210D86D8003150EC /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA25D51210D86D8003150EC /* CustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3AA25D40210C4A7B003150EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AA25D43210C4A7B003150EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3AA25D45210C4A7B003150EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AA25D51210D86D8003150EC /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				3AA25D39210C4A78003150EC /* AppDelegate.swift */,
 				3AA25D3B210C4A78003150EC /* TodoListViewController.swift */,
 				3AA25D3D210C4A78003150EC /* Main.storyboard */,
+				3AA25D51210D86D8003150EC /* CustomCell.swift */,
 				3AA25D40210C4A7B003150EC /* Assets.xcassets */,
 				3AA25D42210C4A7B003150EC /* LaunchScreen.storyboard */,
 				3AA25D45210C4A7B003150EC /* Info.plist */,
@@ -136,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AA25D3C210C4A78003150EC /* TodoListViewController.swift in Sources */,
+				3AA25D52210D86D8003150EC /* CustomCell.swift in Sources */,
 				3AA25D3A210C4A78003150EC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
