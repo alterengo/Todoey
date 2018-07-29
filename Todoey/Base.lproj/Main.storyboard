@@ -60,7 +60,13 @@
                             <outlet property="delegate" destination="2Zr-Zw-GmQ" id="TEb-h4-Jbm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Todoey" id="8nz-Ec-qTQ"/>
+                    <navigationItem key="navigationItem" title="Todoey" id="8nz-Ec-qTQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9lV-yc-PPr">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="2Zr-Zw-GmQ" id="FHh-jo-ke1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4y2-nb-9qd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
