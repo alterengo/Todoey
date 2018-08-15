@@ -14,16 +14,15 @@ class TodoListViewController: UITableViewController {
     
     let defaults = UserDefaults.standard
     
+    //get the documents-folder from the FileManager.default (Singleton)
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        itemArray.append(Item("Find Mike", false))
-        itemArray.append(Item("Got Mike", false))
-        itemArray.append(Item("Super Mike", false))
+        // print(dataFilePath)
         
-        if let items = defaults.array(forKey: "ToDoListArray") as? [Item] {
-            itemArray = items
-        }
+        loadItems()
     }
     
     //MARK - TableView DataSource
@@ -53,9 +52,11 @@ class TodoListViewController: UITableViewController {
         
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         
-        tableView.reloadData()
+        saveData()
         
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        tableView.reloadData()
     }
     
     //MARK - Add new Item
@@ -68,7 +69,7 @@ class TodoListViewController: UITableViewController {
             print (textField.text!)
             self.itemArray.append(Item(textField.text!, false))
             
-            self.defaults.set(self.itemArray, forKey: "ToDoListArray")
+            self.saveData()
             
             self.tableView.reloadData()
         }
@@ -81,5 +82,32 @@ class TodoListViewController: UITableViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
+    func loadItems() {
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            let decoder = PropertyListDecoder()
+            do {
+                itemArray = try decoder.decode([Item].self, from: data)
+            }
+            catch {
+                print("Error while encoding data :(")
+            }
+        }
+    }
+    
+    func saveData() {
+        // make itemArray persistent
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let data = try encoder.encode(itemArray)
+            // Items of itemArray (Item) must implement :Encodable or contain only default data types
+            try data.write(to: dataFilePath!)
+        }
+        catch {
+            print("Error encoding itemArray")
+        }
+    }
+    
 }
 
